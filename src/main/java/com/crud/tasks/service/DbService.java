@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by ola on 13/09/2017.
@@ -20,7 +21,7 @@ public class DbService {
         return repository.findAll();
     }
 
-//    public List<TaskDto> getTaskById() {
-//        return repository.findById();
-//    }
+    public Optional<TaskDto> getTaskById(Long id) {
+        return repository.findById(id);
+    }
 }
