@@ -15,15 +15,22 @@ import java.util.Optional;
  */
 @Service
 public class DbService {
-
     @Autowired
-    private TaskRepository taskRepository;
+    private TaskRepository repository;
 
-    public List<TaskDto> getAllTasks() {
-        return new ArrayList<>();
+    public List<Task> getAllTasks() {
+        return repository.findAll();
     }
 
-    public Optional<Task> getTaskById(Long id) {
-        return taskRepository.findById(id);
+    public Optional<Task> getTaskById(final Long id) {
+        return repository.findById(id);
+    }
+
+    public Task saveTask(final Task task) {
+        return repository.save(task);
+    }
+
+    public Task deleteTask(final Long id) {
+        return repository.deleteTaskById(id);
     }
 }
