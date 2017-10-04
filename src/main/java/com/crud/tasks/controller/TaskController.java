@@ -13,6 +13,8 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 /**
  * Created by ola on 11/09/2017.
  */
+
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/v1/task")
 public class TaskController {
