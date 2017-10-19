@@ -35,13 +35,13 @@ public class SimpleEmailService {
         mailMessage.setTo(mail.getMailTo());
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
-        mailMessage.setCc(mail.getToCc());
-        if (mail.getToCc() != null) {
-            return mailMessage;
-        } else {
-            System.out.println("no other recipients of the email");
+//        mailMessage.setCc(mail.getToCc());
+//        if (mail.getToCc() != null) {
+//            return mailMessage;
+//        } else {
+//            System.out.println("no other recipients of the email");
             return mailMessage;
         }
     }
-}
+//}
 
