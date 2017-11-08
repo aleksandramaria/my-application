@@ -71,8 +71,8 @@ public class TrelloFacadeTestSuite {
         List<TrelloListDto> trelloLists = new ArrayList<>();
         trelloLists.add(new TrelloListDto("1", "my_list", false));
 
-        List<TrelloBoardDto> trelloBoards = new ArrayList<>();
-        trelloBoards.add(new TrelloBoardDto("1", "my_task", trelloLists));
+        List<TrelloBoardDto> trelloBoardsDto = new ArrayList<>();
+        trelloBoardsDto.add(new TrelloBoardDto("1", "my_task", trelloLists));
 
         List<TrelloList> mappedTrelloLists = new ArrayList<>();
         mappedTrelloLists.add(new TrelloList("1", "my_list", false));
@@ -80,9 +80,9 @@ public class TrelloFacadeTestSuite {
         List<TrelloBoard> mappedTrelloBoards = new ArrayList<>();
         mappedTrelloBoards.add(new TrelloBoard("1", "my_task", mappedTrelloLists));
 
-        when(trelloService.fetchTrelloBoards()).thenReturn(trelloBoards);
-        when(trelloMapper.mapToBoards(trelloBoards)).thenReturn(mappedTrelloBoards);
-        when(trelloMapper.mapToBoardsDto(anyList())).thenReturn(trelloBoards);
+        when(trelloService.fetchTrelloBoards()).thenReturn(trelloBoardsDto);
+        when(trelloMapper.mapToBoards(trelloBoardsDto)).thenReturn(mappedTrelloBoards);
+        when(trelloMapper.mapToBoardsDto(anyList())).thenReturn(trelloBoardsDto);
         when(trelloValidator.validateTrelloBoards(mappedTrelloBoards)).thenReturn(mappedTrelloBoards);
 
         //When
@@ -104,15 +104,6 @@ public class TrelloFacadeTestSuite {
         });
     }
 }
-
-
-
-
-
-
-
-
-
 
 
     //    @Test
