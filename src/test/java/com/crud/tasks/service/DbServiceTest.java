@@ -73,16 +73,16 @@ public class DbServiceTest {
         assertEquals(taskList.size(), resultedTaskList.size());
     }
 
-//    @Test
-//    public void shouldGetTaskById() {
-//        //Given
-//        Optional<Task> task = new Optional<Task>(new Long(2), "n", "n");
-//        when(repository.findById(any(Long.class))).thenReturn(task);
-//
-//        //When
-//        Optional<Task> resultTask = repository.findById(new Long(2));
-//
-//        //Then
-//        assertEquals(resultTask, task);
-//    }
+    @Test
+    public void shouldGetTaskById() {
+        //Given
+        Optional<Task> task = Optional.of(new Task(2L, "n", "n"));
+        when(repository.findById(any(Long.class))).thenReturn(task);
+
+        //When
+        Optional<Task> resultTask = repository.findById(2L);
+
+        //Then
+        assertEquals(resultTask, task);
+    }
 }
